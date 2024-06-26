@@ -64,7 +64,6 @@ class Me:
         self.__truediv__(other)
         
     def __pow__(self, other):
-        print(other)
         if isinstance(other, self.__class__):
             if abs(self.m) < realy_small_number:
                 return self
