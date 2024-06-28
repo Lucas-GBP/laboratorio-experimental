@@ -22,6 +22,9 @@ class Me:
 
     def get(self):
         return [self.m, self.u]
+        
+    def get_numpy(self):
+        return array([self.m, self.u], dtype=float128)
 
     def get_measurement(self):
         return self.m
