@@ -44,6 +44,19 @@ class Me:
         factor = 10**decimal
         decimal = -decimal
         return f"({(self.m*factor):.{decimal}f} ± {(self.u*factor):.0f})e{decimal}"
+    
+    def repr_latex(self, signf:int = 2):
+        if self.u < realy_small_number:
+            return f"{self.m} ± {self.u:.{signf-1}f}"
+        
+        decimal = signf - (floor(log10(abs(self.u)))+1)
+        if decimal >= 0:
+            factor = 10**(decimal-1)
+            return f"({(self.m*factor):.1f} \pm {(self.u*factor):.1f})10^"+"{"+f"{-decimal+1}"+"}"
+
+        factor = 10**decimal
+        decimal = -decimal
+        return fr"({(self.m*factor):.{decimal}f} \pm {(self.u*factor):.0f})10^"+"{"+f"{decimal}"+"}"
 
     def __add__(self, other):
         if isinstance(other, self.__class__):
