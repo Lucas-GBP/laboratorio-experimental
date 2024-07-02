@@ -63,7 +63,7 @@ def plot_linear_regression(ax:any, limits:list[float], intercept:Me, slope:Me, r
             intercept.m + limits[0]*slope.m, 
             intercept.m + limits[1]*slope.m
         ]),
-        label = "Reta linearizada $Y = Ax + B$ | $R^{2} ="+f" {r_squared:.3f}$\n"
+        label = "Reta linearizada $Y = Ax + B$ | $R^{2} ="+f" {r_squared:.4f}$\n"
          + rf"$A = {slope.repr_latex()}$, $B = {intercept.repr_latex()}$",
         color = color,
     )
